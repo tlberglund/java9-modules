@@ -1,8 +1,11 @@
 package com.timberglund.poetry;
 
+import com.timberglund.logger.Logger;
+
 public class PoetryEmitter {
 
    public static void main(String args[]) {
-     System.out.println ("PoetryEmitter");
+     Logger logger = new Logger();
+     logger.log("PoetryEmitter");
    }
 }
