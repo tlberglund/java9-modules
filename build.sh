@@ -27,10 +27,6 @@ cd ../simple-logger
 javac -d build/classes $(find src/main/java -name "*.java")
 jar cvf ../mlibs/simple-logger.jar -C build/classes/ .
 
-cd ../main-module
-javac -mp ../mlibs -d build/classes $(find src/main/java -name "*.java")
-jar cvf ../mlibs/main.jar -C build/classes/ .
-
 cd ../content-1
 javac -mp ../mlibs -d build/classes $(find src/main/java -name "*.java")
 jar cvf ../mlibs/content-1.jar -C build/classes/ .
@@ -38,6 +34,10 @@ jar cvf ../mlibs/content-1.jar -C build/classes/ .
 cd ../content-2
 javac -mp ../mlibs -d build/classes $(find src/main/java -name "*.java")
 jar cvf ../mlibs/content-2.jar -C build/classes/ .
+
+cd ../main-module
+javac -mp ../mlibs -d build/classes $(find src/main/java -name "*.java")
+jar cvf ../mlibs/main.jar -C build/classes/ .
 
 cd ..
 java -mp mlibs -m com.timberglund.poetry/com.timberglund.poetry.PoetryEmitter
