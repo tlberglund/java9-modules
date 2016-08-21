@@ -1,8 +1,9 @@
 #~/bin/sh
 
 
+#
 # High-tech clean task
-
+#
 rm -rf counting-logger/build
 rm -rf simple-logger/build
 rm -rf main-module/build
@@ -17,8 +18,9 @@ mkdir -p content-2/build/classes
 
 rm mlibs/*.jar
 
+#
 # Next-level javac abstraction
-
+#
 cd counting-logger
 javac -d build/classes $(find src/main/java -name "*.java")
 jar cvf ../mlibs/counting-logger.jar -C build/classes/ .
@@ -39,5 +41,9 @@ cd ../main-module
 javac -mp ../mlibs -d build/classes $(find src/main/java -name "*.java")
 jar cvf ../mlibs/main.jar -C build/classes/ .
 
+
+#
+# Running modular Java code like a boss
+#
 cd ..
-java -mp mlibs -m com.timberglund.poetry/com.timberglund.poetry.PoetryEmitter
+java -mp mlibs -m com.timberglund.poetry/com.timberglund.poetry.PoetryEmitter Ascetic
